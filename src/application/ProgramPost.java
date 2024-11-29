@@ -13,7 +13,10 @@ public class ProgramPost {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        Post post = new Post(sdf.parse("21/06/2024 13:03:44"), "Traveling to New Zealand", "I'm going to visit this wonderful country!", 12);
+        Post post = new Post(sdf.parse("21/06/2024 13:03:44"),
+                "Traveling to New Zealand",
+                "I'm going to visit this wonderful country!",
+                12);
 
         Comment comment1 = new Comment("Have a nice trip!");
         Comment comment2 = new Comment("Enjoy your journey!");

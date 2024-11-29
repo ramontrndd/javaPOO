@@ -1,44 +1,24 @@
 package application;
 
 import entities.Account;
+import entities.BusinessAccount;
+import entities.SavingsAccount;
 
 import java.util.Scanner;
 
 public class ProgramAccount {
-    public static void main (String[] args) {
-        Account account;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter account number: ");
-        int number = sc.nextInt();
-        System.out.println("Enter account holder: ");
-        sc.nextLine();
-        String holder = sc.nextLine();
-        System.out.println("Is there an initial deposit (y/n)? ");
-        char response = sc.next().charAt(0);
-        if (response == 'y') {
-            System.out.println("Enter initial deposit value: ");
-            double initialDeposit = sc.nextDouble();
-            account = new Account(number, holder, initialDeposit);
-        } else {
-            account = new Account(number, holder);
-        }
-        System.out.println();
-        System.out.println("Account data:");
-        System.out.println(account);
+    public static void main(String[] args) {
 
-        System.out.println();
-        System.out.print("Enter a deposit value: ");
-        double depositValue = sc.nextDouble();
-        account.deposit(depositValue);
-        System.out.println("Updated account data:");
-        System.out.println(account);
+        Account acc1 = new Account(1001, "Alex", 1000.0);
+        acc1.withdraw(200.0);
+        System.out.println(acc1.getBalance());
 
-        System.out.println();
-        System.out.print("Enter a withdraw value: ");
-        double withdrawValue = sc.nextDouble();
-        account.withdraw(withdrawValue);
-        System.out.println("Updated account data:");
-        System.out.println(account);
-        sc.close();
+        Account acc2 = new SavingsAccount(1002, "Maria", 1000.0, 0.01);
+        acc2.withdraw(200.0);
+        System.out.println(acc2.getBalance());
+
+        Account acc3 = new BusinessAccount(1003, "Bob", 1000.0, 500.0);
+        acc3.withdraw(200.0);
+        System.out.println(acc3.getBalance());
     }
 }
